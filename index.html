@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bamazon shopping </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://use.fontawesome.com/0f97643179.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<div class="container">
+    <!-----------------  Title ----------------->
+    <div class="row ">
+        <div class="col title pb-2">
+            Welcome to Bamazon Shopping!
+        </div>
+    </div>
+    <!----------------- table data ----------------->
+    <div class="row"id="tableData">
+        <div class="col">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Dept</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Green Jack</td>
+                    <td>Clothing</td>
+                    <td>59.95</td>
+                    <td>75</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container d-flex justify-content-center">
+    <!--title-->
+    <div class="row">
+        <div class="col ">
+
+            <!-----------------  message area ----------------->
+            <div id="messageArea" class="text">
+                    Select the item and quantity.
+            </div><br>
+
+            <!----------------- inputs ----------------->
+            <div id="inputs">
+                <form>
+                    <div class="form-group text">
+                        <label for="productName" class="text">Product</label>
+                        <select class="form-control" id="productName">
+                            <option>Green Jacket</option>
+                            <option> Blue Jacket</option>
+                            <option>Orange Jacket</option>
+                            <option>Black Jacket</option>
+                            <option> Desktop</option>
+                            <option> Ipad</option>
+                            <option> Monitor</option>
+                            <option> Mouse</option>
+                            <option> Basketball</option>
+                            <option> Football</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group ">
+                        <label for="quantity" class="text">Quantity</label>
+                        <select class="form-control" id="quantity">
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary buttonFormat btn-block">Order</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+<script src="assets/javascript/game.js"></script>
+<script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
+
+
+</body>
+
+</html>

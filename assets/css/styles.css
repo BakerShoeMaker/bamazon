@@ -1,0 +1,32 @@
+body{
+    background-color: saddlebrown;
+}
+
+.title{
+    font-size: 40px;
+    font-family: 'Amatic SC', cursive;
+    color: antiquewhite;
+    text-align: center;
+}
+#messageArea{
+    font-size: 14px;
+    color: antiquewhite;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+.text{
+    font-size: 14px;
+    color: antiquewhite;
+    font-family: 'Arial', sans-serif;
+}
+
+.buttonFormat{
+    color: antiquewhite;
+    border-color: antiquewhite;
+}
+.buttonFormat:hover{
+    color: white;
+    border-color: white;
+    align-content: center;
+}
