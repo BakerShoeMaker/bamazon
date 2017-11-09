@@ -6,6 +6,7 @@ const inquirer = require('inquirer');
 
 var itemSelected = "";
 var quantitySelected = "";
+var productName = "";
 
 //------------ NODE [ENTER] -----------------------
 const connection = mysql.createConnection({
@@ -70,7 +71,7 @@ function runQuery(){
           //console.log("Row" +i  +": " +rows[i]);
           //console.log(rows[i].product_name);
           //console.log(rows[i].stock_quantity);
-          var productName =  rows[i].product_name;
+          productName =  rows[i].product_name;
             if(productName == itemSelected){
                 console.log("We have a match!");
                 //decrease the quantity from the
@@ -87,6 +88,21 @@ function runQuery(){
 function decreaseInventory(){
 
     console.log("We now will decrease the inventory!!!");
+    //subtract 'quantitySelected' from the 'stock_quantity' field of the 'item_id'.
+
+    /*"DELETE FROM products WHERE ?",
+    {
+        flavor: "strawberry"
+    },*/
+
+    connection.query(
+    "UPDATE products SET stock_quantity = stock_quantity - "+quantitySelected +"WHERE product_name =" +itemSelected,
+
+        function(err, rows, fields){
+            console.log("The product name is: ", itemSelected);
+            console.log("The quantity selected is: " ,quantitySelected);
+
+        });
 
 }
 
