@@ -2,7 +2,6 @@ console.log("hello world!");
 const mysql = require('mysql');
 const inquirer = require('inquirer');
 
-//const $ = require('jQuery');
 
 var itemSelected = "";
 var quantitySelected = "";
@@ -96,9 +95,12 @@ function decreaseInventory(){
     },*/
 
     connection.query(
-    "UPDATE products SET stock_quantity = stock_quantity - "+quantitySelected +"WHERE product_name =" +itemSelected,
+    // "UPDATE products SET stock_quantity = stock_quantity - "+quantitySelected +" WHERE product_name = '" + itemSelected,
+        `UPDATE products SET stock_quantity = stock_quantity - ${quantitySelected} WHERE product_name = "${itemSelected}"`,
 
         function(err, rows, fields){
+
+            if (err) console.log(err)
             console.log("The product name is: ", itemSelected);
             console.log("The quantity selected is: " ,quantitySelected);
 
