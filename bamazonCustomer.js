@@ -5,6 +5,7 @@ const inquirer = require('inquirer');
 
 var itemSelected = "";
 var quantitySelected = "";
+var quantityInDatabase;
 var productName = "";
 
 //------------ NODE [ENTER] -----------------------
@@ -71,10 +72,20 @@ function runQuery(){
           //console.log(rows[i].product_name);
           //console.log(rows[i].stock_quantity);
           productName =  rows[i].product_name;
+          quantityInDatabase = rows[i].stock_quantity;
+
             if(productName == itemSelected){
-                console.log("We have a match!");
-                //decrease the quantity from the
-                decreaseInventory();
+                console.log("We have matched the product requested!");
+                //if quantity is not available show message.
+                if( quantitySelected > quantityInDatabase){
+                    console.log("We can't fulfill your order. Not enough product in stock.");
+                }
+                else{
+                    //decrease the quantity from the
+                    console.log("Your order has been sent! Thanks for shopping at Bamazon!")
+                    decreaseInventory();
+                }
+
             }
 
         }
@@ -86,14 +97,6 @@ function runQuery(){
 
 function decreaseInventory(){
 
-    console.log("We now will decrease the inventory!!!");
-    //subtract 'quantitySelected' from the 'stock_quantity' field of the 'item_id'.
-
-    /*"DELETE FROM products WHERE ?",
-    {
-        flavor: "strawberry"
-    },*/
-
     connection.query(
     // "UPDATE products SET stock_quantity = stock_quantity - "+quantitySelected +" WHERE product_name = '" + itemSelected,
         `UPDATE products SET stock_quantity = stock_quantity - ${quantitySelected} WHERE product_name = "${itemSelected}"`,
@@ -101,8 +104,8 @@ function decreaseInventory(){
         function(err, rows, fields){
 
             if (err) console.log(err)
-            console.log("The product name is: ", itemSelected);
-            console.log("The quantity selected is: " ,quantitySelected);
+            console.log("Product ordered: ", itemSelected);
+            console.log("Quantity: " ,quantitySelected);
 
         });
 
